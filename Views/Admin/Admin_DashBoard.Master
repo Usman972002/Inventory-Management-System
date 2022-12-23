@@ -1,0 +1,90 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin_DashBoard.master.cs" Inherits="InVentory_Management_System_MarsTrackTech.Views.Admin.Admin_DashBoard" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="../../Assets/Lib/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        
+        a{
+            color:azure;
+            text-decoration:none;
+            font-size:25px;
+        }
+        
+    </style>
+</head> 
+<body>
+    <div class="container-fluid">
+        <div class="row" style="height:100vh;">
+            <div class="col-md-2  bg-secondary bg-gradient">
+                <div class="row" style="height:150px;">
+                    <!--img src="../../Assets/Images/sup.png" height="100px"/>-->
+                </div>
+                <!--Supplier-->
+                <div class="row mb-4">
+                    <div class="col-md-2"><i class="fa fa-user-circle-o fa-2x"></i></div>
+                    <div class="col"><a href="Supplier.aspx">Suppliers</a> </div>
+                </div>
+                <!--Customers-->
+                <div class="row mb-4">
+                    <div class="col-md-2"><i class="fa fa-users fa-2x"></i></div>
+                    <div class="col-md-10"><a href="Customer.aspx">Customers</a> </div>
+                </div>
+                <!--Categories-->
+                <div class="row mb-4">
+                    <div class="col-md-2"><i class="fa fa-user-circle-o fa-2x"></i></div>
+                    <div class="col-md-10"><a href="Categories.aspx">Categories</a> </div>
+                </div>
+                <!--Units-->
+                <div class="row mb-4">
+                    <div class="col-md-2"><i class="fa fa-balance-scale fa-2x "></i></div>
+                    <div class="col-md-10"><a href="#">Units</a> </div>
+                </div>
+                <!--Products-->
+                <div class="row mb-4">
+                    <div class="col-md-2"><i class="fa fa-shopping-cart fa-2x "></i></div>
+                    <div class="col-md-10"><a href="Products.aspx">Products</a> </div>
+                </div>
+                <!--Purchases-->
+                <div class="row mb-4">
+                    <div class="col-md-2"><i class="fa fa-cart-arrow-down fa-2x "></i></div>
+                    <div class="col-md-10"><a href="#">Purchases</a> </div>
+                </div>
+                <!--Invoices-->
+                <div class="row mb-4">
+                    <div class="col-md-2"><i class="fa fa-money fa-2x "></i></div>
+                    <div class="col-md-10"><a href="#">Invoices</a> </div>
+                </div>
+                <!--Stocks-->
+                <div class="row mb-5">
+                    <div class="col-md-2"><i class="fa fa-archive fa-2x "></i></div>
+                    <div class="col-md-10"><a href="#">Stocks</a> </div>
+                </div>
+                <!--Logout-->
+                <div class="row mb-4">
+                    <div class="col-md-2"><i class="fa fa-sign-out fa-2x "></i></div>
+                    <div class="col-md-10"><a href="#">Logout</a> </div>
+                </div>
+                
+
+
+            </div>
+            <div class="col-md-10">
+                        <form id="form1" runat="server">
+                            <div>
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

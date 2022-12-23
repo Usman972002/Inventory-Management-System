@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InVentory-Management-System-MarsTrackTech", "InVentory-Management-System-MarsTrackTech.csproj", "{FBEA110B-D11D-4236-9EBB-08FD54476C05}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBEA110B-D11D-4236-9EBB-08FD54476C05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBEA110B-D11D-4236-9EBB-08FD54476C05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBEA110B-D11D-4236-9EBB-08FD54476C05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBEA110B-D11D-4236-9EBB-08FD54476C05}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23943685-453A-45DD-948F-2E45FCBE8468}
+	EndGlobalSection
+EndGlobal
