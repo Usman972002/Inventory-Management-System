@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.EnterpriseServices;
@@ -13,147 +14,92 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
 {
     public partial class Supplier : System.Web.UI.Page
     {
-        Models.Functions Con;       
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            Con = new Models.Functions();
-            ShowSuppliers();
+            if (!IsPostBack)
+            {
+                LoadRecord();
+            }
 
         }
-        private void ShowSuppliers()
-        {
-            string Query = "select FM_VEND_CODE,FM_VEND_NAME,FM_VEND_CONTACT_TEL,FM_VEND_EMAIL,FM_VEND_ADDR_1,FM_VEND_COUNTRY,FM_VEND_CITY,FM_VEND_ZIP_CODE from FM_VENDOR_MASTER";
-            Slist.DataSource = Con.GetData(Query);
-            Slist.DataBind();
-        }
-      
+
+        SqlConnection con = new SqlConnection("Data Source = 132.148.75.0,1435; Initial Catalog = TRADING; Persist Security Info = True; User ID = amc; Password = amc123");
 
         protected void SaveBtn_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (Scode.Value == "" || Sname.Value == "" || Smobile.Value == "" || Semail.Value == "" || Sadress.Value == "" || Scity.Value == "" || Scountry.Value == "" || Szipcode.Value == "")
-                {
-                    ErrMsg.InnerText = "Missing Data!!!!!!!";
-                }
-                else
-                {
-                    string SCode = Scode.Value;
-                    string SName = Sname.Value;
-                    string SMobile = Smobile.Value;
-                    string SEmail = Semail.Value;
-                    string SAdress = Sadress.Value;
-                    string SCountry = Scountry.Value;
-                    string SCity = Scity.Value;
-                    string SZip = Szipcode.Value;
 
-                    string Query1 = "INSERT INTO FM_VENDOR_MASTER(FM_VEND_CODE,FM_VEND_NAME,FM_VEND_CONTACT_TEL,FM_VEND_EMAIL,FM_VEND_ADDR_1,FM_VEND_COUNTRY,FM_VEND_CITY,FM_VEND_ZIP_CODE) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')";
-                    Query1 = string.Format(Query1, SCode, SName, SMobile, SEmail, SAdress, SCountry, SCity, SZip);
-                    Con.setData(Query1);
-                    ShowSuppliers();
-                    ErrMsg.InnerText = "Supplier Added!!";
-
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrMsg.InnerText = ex.Message;
-            }
+            SqlCommand com = new SqlCommand("INSERT INTO FM_VENDOR_MASTER(FM_VEND_CODE,FM_VEND_NAME,FM_VEND_CONTACT_TEL,FM_VEND_EMAIL,FM_VEND_ADDR_1,FM_VEND_COUNTRY,FM_VEND_CITY,FM_VEND_ZIP_CODE) VALUES('" + Scode.Value + "', '" + Sname.Value + "','" + Smobile.Value + "','" + Semail.Value + "','" + Sadress.Value + "','" + Scountry.Value + "','" + Scity.Value + "','" + Szipcode.Value + "')", con);
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
+            ErrMsg.InnerText = "Supplier Added!!";
+            LoadRecord();
 
         }
-
-        //int Key = 0;
-        protected void Slist_SelectedIndexChanged(object sender, EventArgs e)
+        void LoadRecord()
         {
-            Scode.Value = Slist.SelectedRow.Cells[1].Text;
-            Sname.Value = Slist.SelectedRow.Cells[2].Text;
-            Smobile.Value = Slist.SelectedRow.Cells[3].Text;
-            Semail.Value = Slist.SelectedRow.Cells[4].Text;
-            Sadress.Value = Slist.SelectedRow.Cells[5].Text;
-            Scountry.Value = Slist.SelectedRow.Cells[6].Text;
-            Scity.Value = Slist.SelectedRow.Cells[7].Text;
-            Szipcode.Value = Slist.SelectedRow.Cells[8].Text;
-            /*
-            if (Scode.Value == "")
-            {
-                Key= 0;
-            }
-            else
-            {
-
-                Key = Convert.ToInt16(Slist.SelectedRow.Cells[1].ToString());
-                
-            }*/
-
-
+            SqlCommand command = new SqlCommand("select FM_VEND_CODE, FM_VEND_NAME, FM_VEND_CONTACT_TEL, FM_VEND_EMAIL, FM_VEND_ADDR_1, FM_VEND_COUNTRY, FM_VEND_CITY, FM_VEND_ZIP_CODE from FM_VENDOR_MASTER", con);
+            SqlDataAdapter d = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            d.Fill(dt);
+            Slist.DataSource = dt;
+            Slist.DataBind();
         }
 
         protected void EditBtn_Click(object sender, EventArgs e)
         {
 
-            try
-            {
-                if (Scode.Value == "" || Sname.Value == "" || Smobile.Value == "" || Semail.Value == "" || Sadress.Value == "" || Scity.Value == "" || Scountry.Value == "" || Szipcode.Value == "")
-                {
-                    ErrMsg.InnerText = "Missing Data!!!!!!!";
-                }
-                else
-                {
-                    string SCode = Scode.Value;
-                    string SName = Sname.Value;
-                    string SMobile = Smobile.Value;
-                    string SEmail = Semail.Value;
-                    string SAdress = Sadress.Value;
-                    string SCountry = Scountry.Value;
-                    string SCity = Scity.Value;
-                    string SZip = Szipcode.Value;
 
-                    string Query2 = "UPDATE FM_VENDOR_MASTER SET  '{0}', '{1}','{2}','{3}','{4}','{5}','{6}','{7}' WHERE Scode={8}";
-                    Query2 = string.Format(Query2,SCode,SName, SMobile, SEmail, SAdress, SCountry, SCity, SZip, Slist.SelectedRow.Cells[1].Text);
-                    Con.setData(Query2);
-                    ShowSuppliers();
-                    ErrMsg.InnerText = "Supplier Updated!!";
-
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrMsg.InnerText = ex.Message;
-            }
+            SqlCommand com = new SqlCommand("UPDATE FM_VENDOR_MASTER SET  FM_VEND_NAME = '" + Sname.Value + "',FM_VEND_CONTACT_TEL='" + Smobile.Value + "',FM_VEND_EMAIL='" + Semail.Value + "',FM_VEND_ADDR_1='" + Sadress.Value + "',FM_VEND_COUNTRY='" + Scountry.Value + "',FM_VEND_CITY='" + Scity.Value + "',FM_VEND_ZIP_CODE='" + Szipcode.Value + "' WHERE  FM_VEND_CODE='" + Scode.Value + "'", con);
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
+            ErrMsg.InnerText = "Supplier Updated Succesfully";
+            LoadRecord();
 
         }
 
         protected void DeleteBtn_Click(object sender, EventArgs e)
         {
 
+            SqlCommand com = new SqlCommand("DELETE FROM FM_VENDOR_MASTER  WHERE  FM_VEND_CODE='" + Scode.Value + "'", con);
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
+            ErrMsg.InnerText = "Supplier Deleted Succesfully";
+            LoadRecord();
 
-            try
-            {
-
-                string SCode = Scode.Value;
-                string SName = Sname.Value;
-                string SMobile = Smobile.Value;
-                string SEmail = Semail.Value;
-                string SAdress = Sadress.Value;
-                string SCountry = Scountry.Value;
-                string SCity = Scity.Value;
-                string SZip = Szipcode.Value;
-
-                string Query3 = "DELETE FROM  FM_VENDOR_MASTER  WHERE Scode = {0}";
-                Query3 = string.Format(Query3, Slist.SelectedRow.Cells[1].Text);
-                Con.setData(Query3);
-                ShowSuppliers();
-                ErrMsg.InnerText = "Supplier Deleted!!";
-
-
-            }
-            catch (Exception ex)
-            {
-                ErrMsg.InnerText = ex.Message;
-
-
-            }
         }
-        
+
+        protected void SearchBtn_Click(Object sender, EventArgs e)
+        {
+            SqlCommand command = new SqlCommand("select  FM_VEND_CODE, FM_VEND_NAME, FM_VEND_CONTACT_TEL, FM_VEND_EMAIL, FM_VEND_ADDR_1, FM_VEND_COUNTRY, FM_VEND_CITY, FM_VEND_ZIP_CODE from FM_VENDOR_MASTER WHERE FM_VEND_CODE='" + Ssearch.Value + "'", con);
+            SqlDataAdapter d = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            d.Fill(dt);
+            Slist.DataSource = dt;
+            Slist.DataBind();
+        }
+
+        protected void GetBtn_Click(Object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand command = new SqlCommand("select  FM_VEND_CODE, FM_VEND_NAME, FM_VEND_CONTACT_TEL, FM_VEND_EMAIL, FM_VEND_ADDR_1, FM_VEND_COUNTRY, FM_VEND_CITY, FM_VEND_ZIP_CODE from FM_VENDOR_MASTER WHERE FM_VEND_CODE='" + Sdb.Value + "'", con);
+            SqlDataReader r = command.ExecuteReader();
+            while (r.Read())
+            {
+                Scode.Value = r.GetValue(0).ToString();
+                Sname.Value = r.GetValue(1).ToString();
+                Smobile.Value = r.GetValue(2).ToString();
+                Semail.Value = r.GetValue(3).ToString();
+                Sadress.Value = r.GetValue(4).ToString();
+                Scountry.Value = r.GetValue(5).ToString();
+                Scity.Value = r.GetValue(6).ToString();
+                Szipcode.Value = r.GetValue(7).ToString();
+            }
+
+        }
     }
-}
+
+    }

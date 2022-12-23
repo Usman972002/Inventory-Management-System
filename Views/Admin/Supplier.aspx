@@ -14,7 +14,7 @@
                 <label>Supplier Code</label>
                 <input type="text" placeholder="Code starts With S" id="Scode" runat="server" class="form-control mt-1" />
             </div>
-
+            
             <div class="col-md-4 mb-2">
                 <label>Supplier Name</label>
                 <input type="text" placeholder="Enter Supplier Name" id="Sname" runat="server" class="form-control mt-1" />
@@ -65,6 +65,18 @@
                 <div class="col-sm-1">
                     <asp:Button Text="Delete" ID="DeleteBtn" class="btn btn-dark btn-block" runat="server" OnClick="DeleteBtn_Click" />
                 </div>
+                <div class="col-sm-2">
+                    <input type="text" placeholder="Enter Id To search " id="Ssearch" runat="server" class="form-control mt-1" />
+                </div>
+                <div class="col-sm-1">
+                    <asp:Button Text="Search" ID="SearchBtn" class ="btn btn-dark btn-block" runat="server" OnClick="SearchBtn_Click"/>
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" placeholder="Enter Id To search " id="Sdb" runat="server" class="form-control mt-1" />
+                </div>
+                <div class="col-sm-1 mb-2">
+                    <asp:Button Text="GetDetails" ID="GetBtn" class ="btn btn-dark btn-block" runat="server" OnClick="GetBtn_Click"/>
+                </div>
                 
             </div>
 
@@ -74,7 +86,7 @@
         <div class="col">
             <h3>Suppliers List</h3>
             
-            <asp:GridView runat="server" ID="Slist" class="table" AutoGenerateSelectButton="True" OnSelectedIndexChanged="Slist_SelectedIndexChanged">
+            <asp:GridView runat="server" ID="Slist" class="table" >
             </asp:GridView>
         </div>
         </div>
