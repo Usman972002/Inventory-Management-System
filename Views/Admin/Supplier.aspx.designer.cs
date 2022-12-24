@@ -87,15 +87,6 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
         protected global::System.Web.UI.HtmlControls.HtmlInputText Szipcode;
 
         /// <summary>
-        /// ErrMsg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ErrMsg;
-
-        /// <summary>
         /// EditBtn control.
         /// </summary>
         /// <remarks>
@@ -132,6 +123,15 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
         protected global::System.Web.UI.HtmlControls.HtmlInputText Ssearch;
 
         /// <summary>
+        /// Sdb1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Sdb1;
+
+        /// <summary>
         /// SearchBtn control.
         /// </summary>
         /// <remarks>
@@ -157,6 +157,15 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button GetBtn;
+
+        /// <summary>
+        /// ErrMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ErrMsg;
 
         /// <summary>
         /// Slist control.
