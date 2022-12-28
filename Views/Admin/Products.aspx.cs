@@ -18,15 +18,13 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            loadCategory();
+            loadSuppliers();
+            if (!IsPostBack)
             {
-                loadCategory();
-                loadSuppliers();
                 LoadRecord();
-            }
-           
+            }        
         }
-
      
         SqlConnection con = new SqlConnection("Data Source = 132.148.75.0,1435; Initial Catalog = TRADING; Persist Security Info = True; User ID = amc; Password = amc123");
         DateTime dt = DateTime.Now;
@@ -65,13 +63,15 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
 
         void LoadRecord()
         {
-            SqlCommand command = new SqlCommand("select OM_ITEM_CODE,OM_ITEM_MAIN_NAME,OM_ITEM_CATEGORY,FM_VEND_NAME,OM_ITEM_COST_PRICE,OM_ITEM_CREATED_DATE from FM_VENDOR_MASTER,OM_ITEM_MASTER ", con);
+            SqlCommand command = new SqlCommand("select OM_ITEM_CODE,OM_ITEM_MAIN_NAME,OM_ITEM_CATEGORY,OM_ITEM_CREATED_BY,OM_ITEM_COST_PRICE,OM_ITEM_CREATED_DATE from OM_ITEM_MASTER  order by OM_ITEM_CREATED_DATE DESC ", con);
             SqlDataAdapter d = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
             d.Fill(dt);
             Plist.DataSource = dt;
             Plist.DataBind();
         }
+
+
 
         protected void SaveBtn_Click(object sender, EventArgs e)
         {
@@ -122,11 +122,11 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
 
             {
                 Pcode.Value = r.GetValue(0).ToString();
-                Pname.Value= r.GetValue(1).ToString();
-                Pcategory.Text= r.GetValue(2).ToString();
-                Psupplier.Text= r.GetValue(3).ToString();
-                Pprize.Value= r.GetValue(4).ToString();
-                Pdate.Value= r.GetValue(5).ToString();
+                Pname.Value = r.GetValue(1).ToString();
+                Pcategory.Text = r.GetValue(2).ToString();
+                Psupplier.Text = r.GetValue(3).ToString();
+                Pprize.Value = r.GetValue(4).ToString();
+                Pdate.Value = r.GetValue(5).ToString();
             }
         }
     }

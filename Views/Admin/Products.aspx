@@ -1,60 +1,58 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Admin/Admin_DashBoard.Master" AutoEventWireup="true" CodeBehind="Products.aspx.cs" Inherits="InVentory_Management_System_MarsTrackTech.Views.Admin.Products" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="row" style="height:20px;background-color:aquamarine;">
-
+    <div class="row" style="height: 20px; background-color: aquamarine;">
     </div>
     <div class="row">
         <div class="col-md-12">
             <h3>Add Product </h3>
             <div class="row">
 
-              <div class="col-md-4 mb-2">
-                <label>Product Code</label>
-                <input type="text" placeholder="Enter Product Code"  id="Pcode" runat="server" class="form-control mt-1" />
-            </div>
-
-            <div class="col-md-4 mb-2">
-                <label>Product Name</label>
-                <input type="text" placeholder="Enter Product Name"  id="Pname" runat="server" class="form-control mt-1" />
-            </div>
-
-            <div class="col-md-4 mb-2">
-                <label>Product Supplier </label>
-                <asp:DropDownList runat="server"  id="Psupplier" class="form-control mt-1">
-                    
-                </asp:DropDownList>
-                
-            </div>
+                <div class="col-md-4 mb-2">
+                    <label>Product Code</label>
+                    <input type="text" placeholder="Enter Product Code" id="Pcode" runat="server" class="form-control mt-1" />
+                </div>
 
                 <div class="col-md-4 mb-2">
-                <label>Product Category</label>
-                <asp:DropDownList runat="server" name="Pcat" id="Pcategory" class="form-control mt-1">
-                    
-                </asp:DropDownList>
+                    <label>Product Name</label>
+                    <input type="text" placeholder="Enter Product Name" id="Pname" runat="server" class="form-control mt-1" />
+                </div>
+
+                <div class="col-md-4 mb-2">
+                    <label>Product Supplier </label>
+                    <asp:DropDownList runat="server" ID="Psupplier" class="form-control mt-1">
+                    </asp:DropDownList>
+
+                </div>
+
+                <div class="col-md-4 mb-2">
+                    <label>Product Category</label>
+                    <asp:DropDownList runat="server" name="Pcat" ID="Pcategory" class="form-control mt-1">
+                    </asp:DropDownList>
+                </div>
+
+                <div class="col-md-4 mb-2">
+                    <label>Product Units</label>
+                    <asp:DropDownList runat="server" ID="Punits" class="form-control mt-1">
+                    </asp:DropDownList>
+                </div>
+
+                <div class="col-md-4 mb-2">
+                    <label>Product Price</label>
+                    <input type="number" placeholder="Enter product prize" id="Pprize" runat="server" class="form-control mt-1" />
+                </div>
+
+                <div class="col-md-4 mb-2">
+                    <label>Add Date and Time </label>
+                    <input type="datetime-local" id="Pdate" runat="server" class="form-control mt-1" />
+                </div>
             </div>
 
-             <div class="col-md-4 mb-2">
-                <label>Product Units</label>
-                <asp:DropDownList runat="server" id="Punits" class="form-control mt-1">
-                    
-                </asp:DropDownList>
-            </div>
 
-              <div class="col-md-4 mb-2">
-                <label>Product Price</label>
-                <input type="number" placeholder="Enter product prize"  id="Pprize" runat="server" class="form-control mt-1" />
-            </div>
-                
-            <div class="col-md-4 mb-2">
-                <label>Add Date and Time </label>
-                <input type="datetime-local" id="Pdate" runat ="server" class="form-control mt-1" />
-            </div>                    
-            </div>
-
-          <div class="row mb-4">
+             <div class="row mb-4">
                 
                 <div class="col-sm-1">
                     <asp:Button Text="Edit" ID="EditBtn" class="btn  btn-dark btn-block" runat="server" OnClick="EditBtn_Click" />
@@ -85,18 +83,18 @@
                 
             </div>
 
- 
+
 
         </div>
-        </div>
-        <div class="row mt-2" style="height:20px;background-color:aquamarine;"></div>
-        <div class="col">
-            <h3>Product's List</h3>
-            <asp:GridView runat="server"  id="Plist" class="table" >
+    </div>
 
-            </asp:GridView>
-        </div>
-    
+    <div class="row mt-2" style="height: 20px; background-color: aquamarine;"></div>
+    <div class="col">
+        <h3>Product's List</h3>
+        <asp:GridView runat="server" ID="Plist" class="table">
+        </asp:GridView>
+    </div>
+
 
 
 
