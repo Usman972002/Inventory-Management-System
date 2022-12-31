@@ -95,6 +95,7 @@
     <Content Include="Views\Admin\Categories.aspx" />
     <Content Include="Views\Admin\Customer.aspx" />
     <Content Include="Views\Admin\Products.aspx" />
+    <Content Include="Views\Admin\PurchaseOrder.aspx" />
     <Content Include="Views\Admin\Supplier.aspx" />
     <Content Include="Views\Admin\Units.aspx" />
     <Content Include="Web.config" />
@@ -131,6 +132,13 @@
     </Compile>
     <Compile Include="Views\Admin\Products.aspx.designer.cs">
       <DependentUpon>Products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\PurchaseOrder.aspx.cs">
+      <DependentUpon>PurchaseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\PurchaseOrder.aspx.designer.cs">
+      <DependentUpon>PurchaseOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\Supplier.aspx.cs">
       <DependentUpon>Supplier.aspx</DependentUpon>

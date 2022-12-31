@@ -18,11 +18,13 @@
             <div class="row mb-4">
                 
                 <div class="col-sm-1">
-                    <asp:Button Text="Add" ID="AddBtn" class="btn  btn-dark btn-block" runat="server"  />
+                    <asp:Button Text="Add" ID="AddBtn" class="btn  btn-dark btn-block" runat="server" OnClick="AddBtn_Click" />
                 </div>
                 <div class="col-sm-1">
-                    <asp:Button Text="Delete" ID="DelBtn" class="btn  btn-dark btn-block" runat="server"  />
+                    <asp:Button Text="Delete" ID="DelBtn" class="btn  btn-dark btn-block" runat="server" OnClick="DelBtn_Click" />
                 </div>
+
+                <label class="text-danger text-center" id="ErrMsg" runat="server"></label>
             </div>
         </div>
         </div>

@@ -39,7 +39,7 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
         }
         void LoadRecord()
         {
-            SqlCommand command = new SqlCommand("select FM_VEND_CODE, FM_VEND_NAME, FM_VEND_CONTACT_TEL, FM_VEND_EMAIL, FM_VEND_ADDR_1, FM_VEND_COUNTRY, FM_VEND_CITY, FM_VEND_ZIP_CODE from FM_VENDOR_MASTER ORDER BY FM_VEND_CODE", con);
+            SqlCommand command = new SqlCommand("select FM_VEND_CODE AS SID, FM_VEND_NAME AS SNAME, FM_VEND_CONTACT_TEL AS SMOBILE, FM_VEND_EMAIL AS SEMAIL, FM_VEND_ADDR_1 AS SADRESS, FM_VEND_COUNTRY AS SCOUNTRY, FM_VEND_CITY AS SCITY, FM_VEND_ZIP_CODE AS SZIPCODE from FM_VENDOR_MASTER ORDER BY FM_VEND_CODE", con);
             SqlDataAdapter d = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
             d.Fill(dt);
@@ -74,7 +74,7 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
 
         protected void SearchBtn_Click(Object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("select  FM_VEND_CODE, FM_VEND_NAME, FM_VEND_CONTACT_TEL, FM_VEND_EMAIL, FM_VEND_ADDR_1, FM_VEND_COUNTRY, FM_VEND_CITY, FM_VEND_ZIP_CODE from FM_VENDOR_MASTER WHERE FM_VEND_CODE='" + Ssearch.Value + "'OR FM_VEND_NAME='"+Sdb1.Value+"'", con);
+            SqlCommand command = new SqlCommand("select FM_VEND_CODE AS SID, FM_VEND_NAME AS SNAME, FM_VEND_CONTACT_TEL AS SMOBILE, FM_VEND_EMAIL AS SEMAIL, FM_VEND_ADDR_1 AS SADRESS, FM_VEND_COUNTRY AS SCOUNTRY, FM_VEND_CITY AS SCITY, FM_VEND_ZIP_CODE AS SZIPCODE from FM_VENDOR_MASTER WHERE FM_VEND_CODE='" + Ssearch.Value + "'OR FM_VEND_NAME='"+Sdb1.Value+"'", con);
             SqlDataAdapter d = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
             d.Fill(dt);
