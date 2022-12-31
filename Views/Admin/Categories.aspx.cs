@@ -38,7 +38,7 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
         }
         void LoadRecord()
         {
-            SqlCommand command = new SqlCommand("select OM_ITEM_CATEGORY_CODE,OM_ITEM_CATEGORY_DESCRIPTION,OM_ITEM_CATEGORY_CREATED_DATE from OM_ITEM_CATEGORY ORDER BY OM_ITEM_CATEGORY_CREATED_DATE DESC", con);
+            SqlCommand command = new SqlCommand("select OM_ITEM_CATEGORY_CODE AS CID,OM_ITEM_CATEGORY_DESCRIPTION AS CNAME,OM_ITEM_CATEGORY_CREATED_DATE AS CDATE from OM_ITEM_CATEGORY ORDER BY OM_ITEM_CATEGORY_CREATED_DATE DESC", con);
             SqlDataAdapter d = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
             d.Fill(dt);
@@ -70,7 +70,7 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
         
         protected void SearchBtn_Click(Object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("select OM_ITEM_CATEGORY_CODE,OM_ITEM_CATEGORY_DESCRIPTION,OM_ITEM_CATEGORY_CREATED_DATE from OM_ITEM_CATEGORY  WHERE OM_ITEM_CATEGORY_CODE='"+Csearch.Value + "' OR OM_ITEM_CATEGORY_DESCRIPTION='" + Cdb1.Value +"' ", con);
+            SqlCommand command = new SqlCommand("select OM_ITEM_CATEGORY_CODE AS CID,OM_ITEM_CATEGORY_DESCRIPTION AS CNAME,OM_ITEM_CATEGORY_CREATED_DATE AS CDATE  from OM_ITEM_CATEGORY  WHERE OM_ITEM_CATEGORY_CODE='"+Csearch.Value + "' OR OM_ITEM_CATEGORY_DESCRIPTION='" + Cdb1.Value +"' ", con);
             SqlDataAdapter d = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
             d.Fill(dt);
@@ -81,7 +81,7 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
         protected void GetBtn_Click(Object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand command = new SqlCommand("select OM_ITEM_CATEGORY_CODE,OM_ITEM_CATEGORY_DESCRIPTION,OM_ITEM_CATEGORY_CREATED_DATE from OM_ITEM_CATEGORY WHERE OM_ITEM_CATEGORY_CODE='" + Cdb.Value + "'", con);
+            SqlCommand command = new SqlCommand("select OM_ITEM_CATEGORY_CODE AS CID ,OM_ITEM_CATEGORY_DESCRIPTION AS CNAME,OM_ITEM_CATEGORY_CREATED_DATE AS CDATE from OM_ITEM_CATEGORY WHERE OM_ITEM_CATEGORY_CODE='" + Cdb.Value + "'", con);
              SqlDataReader r = command.ExecuteReader();
            while (r.Read())
            {

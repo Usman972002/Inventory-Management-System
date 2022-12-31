@@ -57,3 +57,4 @@ C:\Users\usman\OneDrive\Desktop\Project-MTT\InVentory-Management-System-MarsTrac
 C:\Users\usman\OneDrive\Desktop\Project-MTT\InVentory-Management-System-MarsTrackTech\obj\Debug\InVentory-Management-System-MarsTrackTech.csproj.CopyComplete
 C:\Users\usman\OneDrive\Desktop\Project-MTT\InVentory-Management-System-MarsTrackTech\obj\Debug\InVentory-Management-System-MarsTrackTech.dll
 C:\Users\usman\OneDrive\Desktop\Project-MTT\InVentory-Management-System-MarsTrackTech\obj\Debug\InVentory-Management-System-MarsTrackTech.pdb
+C:\Users\usman\OneDrive\Desktop\Project-MTT\InVentory-Management-System-MarsTrackTech\bin\itextsharp.dll

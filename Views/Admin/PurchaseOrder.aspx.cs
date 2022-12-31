@@ -8,6 +8,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
+using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
 
 namespace InVentory_Management_System_MarsTrackTech.Views.Admin
 {
@@ -130,6 +133,30 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
             }
         }
 
+        protected void PrintBtn_Click(object sender, EventArgs e)
+        {
+            Response.ContentType = "Application/pdf";
+            Response.AddHeader("content-Disposition", "attachement;filename=YourFile.pdf");
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            Olist.RenderControl(hw);
+            Document doc = new Document(PageSize.A4, 50f, 50f, 100f, 30f);
+            HTMLWorker htw = new HTMLWorker(doc);
+            PdfWriter.GetInstance(doc, Response.OutputStream);
+            doc.Open();
+            StringReader sr = new StringReader(sw.ToString());
+            htw.Parse(sr);
+            doc.Close();
+            Response.Write(doc);
+            Response.End();
+
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            
+        }
     }
     
 }

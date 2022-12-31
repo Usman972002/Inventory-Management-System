@@ -37,7 +37,7 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
         }
         void LoadRecord()
         {
-            SqlCommand command = new SqlCommand("select OM_CLIENT_CODE,OM_CLIENT_NAME,OM_CLIENT_CONTACT_TELEPHONE,OM_CLIENT_ADDRESS_1,OM_CLIENT_COUNTRY,OM_CLIENT_CITY,OM_CLIENT_ZIP from OM_CLIENT_MASTER ORDER BY OM_CLIENT_CODE DESC", con);
+            SqlCommand command = new SqlCommand("select OM_CLIENT_CODE AS CID,OM_CLIENT_NAME AS CNAME,OM_CLIENT_CONTACT_TELEPHONE AS CMOBILE ,OM_CLIENT_ADDRESS_1 AS CADRESS,OM_CLIENT_COUNTRY AS CCOUNTRY,OM_CLIENT_CITY AS CCITY,OM_CLIENT_ZIP AS CZIPCODE from OM_CLIENT_MASTER ORDER BY OM_CLIENT_CODE DESC", con);
             SqlDataAdapter d = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
             d.Fill(dt);
@@ -67,7 +67,7 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
 
         protected void SearchBtn_Click(Object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("select OM_CLIENT_CODE,OM_CLIENT_NAME,OM_CLIENT_CONTACT_TELEPHONE,OM_CLIENT_ADDRESS_1,OM_CLIENT_COUNTRY,OM_CLIENT_CITY,OM_CLIENT_ZIP from OM_CLIENT_MASTER WHERE OM_CLIENT_CODE='" + Csearch.Value + "' OR OM_CLIENT_NAME='" +Cdb1.Value + "'", con);
+            SqlCommand command = new SqlCommand("select OM_CLIENT_CODE AS CID,OM_CLIENT_NAME AS CNAME,OM_CLIENT_CONTACT_TELEPHONE AS CMOBILE ,OM_CLIENT_ADDRESS_1 AS CADRESS,OM_CLIENT_COUNTRY AS CCOUNTRY,OM_CLIENT_CITY AS CCITY,OM_CLIENT_ZIP AS CZIPCODE from OM_CLIENT_MASTER WHERE OM_CLIENT_CODE='" + Csearch.Value + "' OR OM_CLIENT_NAME='" +Cdb1.Value + "'", con);
             SqlDataAdapter d = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
             d.Fill(dt);
@@ -80,7 +80,7 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
         protected void GetBtn_Click(Object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand command = new SqlCommand("select OM_CLIENT_CODE,OM_CLIENT_NAME,OM_CLIENT_CONTACT_TELEPHONE,OM_CLIENT_ADDRESS_1,OM_CLIENT_COUNTRY,OM_CLIENT_CITY,OM_CLIENT_ZIP from OM_CLIENT_MASTER WHERE OM_CLIENT_CODE='" + Cdb.Value + "' ", con);
+            SqlCommand command = new SqlCommand("select OM_CLIENT_CODE AS CID,OM_CLIENT_NAME AS CNAME,OM_CLIENT_CONTACT_TELEPHONE AS CMOBILE ,OM_CLIENT_ADDRESS_1 AS CADRESS,OM_CLIENT_COUNTRY AS CCOUNTRY,OM_CLIENT_CITY AS CCITY,OM_CLIENT_ZIP AS CZIPCODE from OM_CLIENT_MASTER WHERE OM_CLIENT_CODE='" + Cdb.Value + "' ", con);
             SqlDataReader r = command.ExecuteReader();
             while (r.Read())
             {

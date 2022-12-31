@@ -63,7 +63,7 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
 
         void LoadRecord()
         {
-            SqlCommand command = new SqlCommand("select OM_ITEM_CODE,OM_ITEM_MAIN_NAME,OM_ITEM_CATEGORY,OM_ITEM_CREATED_BY,OM_ITEM_COST_PRICE,OM_ITEM_CREATED_DATE from OM_ITEM_MASTER  order by OM_ITEM_CREATED_DATE DESC ", con);
+            SqlCommand command = new SqlCommand("select OM_ITEM_CODE AS PID,OM_ITEM_MAIN_NAME AS PNAME,OM_ITEM_CATEGORY AS PCATEGORY,OM_ITEM_CREATED_BY AS PSUPPLIER,OM_ITEM_COST_PRICE AS PCOST,OM_ITEM_CREATED_DATE AS PDATE from OM_ITEM_MASTER  order by OM_ITEM_CREATED_DATE DESC ", con);
             SqlDataAdapter d = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
             d.Fill(dt);
@@ -105,7 +105,7 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
 
         protected void SearchBtn_Click(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("select OM_ITEM_CODE,OM_ITEM_MAIN_NAME,OM_ITEM_CATEGORY,OM_ITEM_CREATED_BY,OM_ITEM_COST_PRICE,OM_ITEM_CREATED_DATE from OM_ITEM_MASTER WHERE OM_ITEM_CODE='" + Psearch.Value + "' OR OM_ITEM_MAIN_NAME='" + Pdb1.Value + "'", con);
+            SqlCommand command = new SqlCommand("select OM_ITEM_CODE AS PID,OM_ITEM_MAIN_NAME AS PNAME,OM_ITEM_CATEGORY AS PCATEGORY,OM_ITEM_CREATED_BY AS PSUPPLIER,OM_ITEM_COST_PRICE AS PCOST,OM_ITEM_CREATED_DATE AS PDATE from OM_ITEM_MASTER WHERE OM_ITEM_CODE='" + Psearch.Value + "' OR OM_ITEM_MAIN_NAME='" + Pdb1.Value + "'", con);
             SqlDataAdapter d = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
             d.Fill(dt);
@@ -116,7 +116,7 @@ namespace InVentory_Management_System_MarsTrackTech.Views.Admin
         protected void GetBtn_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand command = new SqlCommand("select OM_ITEM_CODE,OM_ITEM_MAIN_NAME,OM_ITEM_CATEGORY,OM_ITEM_CREATED_BY,OM_ITEM_COST_PRICE,OM_ITEM_CREATED_DATE from OM_ITEM_MASTER WHERE OM_ITEM_CODE='" + Pdb.Value + "'", con);
+            SqlCommand command = new SqlCommand("select OM_ITEM_CODE AS PID,OM_ITEM_MAIN_NAME AS PNAME,OM_ITEM_CATEGORY AS PCATEGORY,OM_ITEM_CREATED_BY AS PSUPPLIER,OM_ITEM_COST_PRICE AS PCOST,OM_ITEM_CREATED_DATE AS PDATE from OM_ITEM_MASTER WHERE OM_ITEM_CODE='" + Pdb.Value + "'", con);
             SqlDataReader r = command.ExecuteReader();
             while (r.Read())
 

@@ -64,7 +64,7 @@
                 <div class="col-sm-1">
                     <asp:Button Text="Delete" ID="DeleteBtn" class="btn btn-dark btn-block" runat="server" OnClick="DeleteBtn_Click" />
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-1">
                     <input type="text" placeholder="Enter Id To search " id="Osearch" runat="server" class="form-control mt-1" />
                 </div>
                 <div class="col-sm-2">
@@ -73,7 +73,10 @@
                 <div class="col-sm-1">
                     <asp:Button Text="Search" ID="SearchBtn" class="btn btn-dark btn-block" runat="server" OnClick="SearchBtn_Click" />
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-1">
+                    <asp:Button Text="Print" ID="PrintBtn" class="btn btn-dark btn-block" runat="server" OnClick="PrintBtn_Click" />
+                </div>
+                <div class="col-sm-1">
                     <input type="text" placeholder="Enter Id To search " id="Odb" runat="server" class="form-control mt-1" />
                 </div>
 
