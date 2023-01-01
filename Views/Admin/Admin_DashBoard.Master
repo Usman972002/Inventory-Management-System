@@ -23,9 +23,11 @@
     <div class="container-fluid">
         <div class="row" style="height:100vh;">
             <div class="col-md-2  bg-secondary bg-gradient">
-                <div class="row" style="height:150px;">
-                    <!--img src="../../Assets/Images/sup.png" height="100px"/>-->
+                <div class="row" style="height:100px;">
+                    <h3>Inventory Management System</h3>
                 </div>
+                <hr />
+                <h3>MANAGE</h3>
                 <!--Supplier-->
                 <div class="row mb-4">
                     <div class="col-md-2"><i class="fa fa-user-circle-o fa-2x"></i></div>
